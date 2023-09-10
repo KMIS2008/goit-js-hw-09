@@ -30,6 +30,7 @@ intervalId = setInterval(() => {
 }
 
 function generatorColorStop (event){
-    clearInterval(intervalId)
+    clearInterval(intervalId);
+    btnStart.disabled = false;
 }
 
