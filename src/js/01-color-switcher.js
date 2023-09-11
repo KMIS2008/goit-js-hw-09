@@ -20,7 +20,7 @@ function generatorColorStart (event){
    if(btnStart.disabled){
     return; }
 
-btnStart.disabled = true;
+    btnStart.disabled = true;
 
 intervalId = setInterval(() => {
 
