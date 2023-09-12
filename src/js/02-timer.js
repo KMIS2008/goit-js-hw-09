@@ -11,6 +11,7 @@ const minute = document.querySelector('[data-minutes]');
 const hour = document.querySelector('[data-hours]');
 const day = document.querySelector('[data-days]');
 const timerCount = 1000;
+let intervalId = null;
 // let timeDiference = 0;
 
 const flatpickr = require("flatpickr");
@@ -60,7 +61,8 @@ const options = {
     btnStart.disabled = true;
 
     intervalId = setInterval(() => {
-
+// const differentTime = new Date(date.value)- new Date();
+// console.log(differentTime);
 
 }, timerCount);
 
@@ -85,7 +87,7 @@ const options = {
     return { days, hours, minutes, seconds };
   }
   
-  console.log(convertMs(6000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
+  // console.log(convertMs(differentTime)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
   
   function addLeadingZero(value){
 
