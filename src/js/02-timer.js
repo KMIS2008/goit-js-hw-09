@@ -12,6 +12,7 @@ const hour = document.querySelector('[data-hours]');
 const day = document.querySelector('[data-days]');
 const timerCount = 1000;
 let intervalId = null;
+btnStart.disabled = true;
 // let timeDiference = 0;
 
 const flatpickr = require("flatpickr");
@@ -29,8 +30,8 @@ const options = {
         btnStart.disabled = true;} 
 
         btnStart.disabled = false;
-      // const startTime = selectedDates[0];
-      // return startTime;
+      const startTime = selectedDates[0];
+      return startTime;
     },
 
 //  timeMLS(){
@@ -52,7 +53,7 @@ const options = {
 
 // console.log(timeDiference);
 
-//   btnStart.addEventListener('click', clickSart);
+  btnStart.addEventListener('click', clickSart);
 
   function clickSart(event){
     if(btnStart.disabled){
@@ -61,9 +62,18 @@ const options = {
     btnStart.disabled = true;
 
     intervalId = setInterval(() => {
-// const differentTime = new Date(date.value)- new Date();
-// console.log(differentTime);
+const differentTime = startTime - new Date();
 
+btnStart.disabled = true;
+if(differentTime => 0){
+   const {days, hours, minutes, seconds } = convertMs(differentTime);
+   day.textContent = days;
+   hour.textContent = hours;
+   minute.textContent = minutes;
+   second.textContent = seconds;
+}
+btnStart.disabled = false;
+clearInterval(intervalId);
 }, timerCount);
 
   };
