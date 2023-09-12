@@ -14,7 +14,12 @@ const options = {
   };
 
   const inputData = document.querySelector('#datetime-picker');
-  console.log(inputData)
+  console.log(inputData);
+  const timer = document.querySelector('.timer');
+  const second = document.querySelector('[data-seconds]');
+  const minute = document.querySelector('[data-minutes]');
+  const hour = document.querySelector('[data-hours]');
+  const day = document.querySelector('[data-days]');
 
 
   flatpickr(inputData, options)
