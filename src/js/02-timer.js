@@ -12,6 +12,7 @@ const hour = document.querySelector('[data-hours]');
 const day = document.querySelector('[data-days]');
 const timerCount = 1000;
 let intervalId = null;
+let startTime = null;
 btnStart.disabled = true;
 // let timeDiference = 0;
 
@@ -29,53 +30,45 @@ const options = {
         window.alert("Please choose a date in the future");
         btnStart.disabled = true;} 
 
-        btnStart.disabled = false;
-      const startTime = selectedDates[0];
-      return startTime;
+      btnStart.disabled = false;
+      startTime = selectedDates[0].getTime();
     },
-
-//  timeMLS(){
-     
-//       // console.log(startTime); 
-
-//       const finishTime = new Date();
-//        console.log(finishTime); 
-      
-//       const timeDiference = startTime - finishTime;
-// console.log(timeDiference);
-// return timeDiference;
-//  },
- 
   };
 
-//   console.log(options);
-//  options.timeMLS();
 
-// console.log(timeDiference);
 
   btnStart.addEventListener('click', clickSart);
 
   function clickSart(event){
     if(btnStart.disabled){
-      return; }
+      return;
+     }
 
     btnStart.disabled = true;
 
     intervalId = setInterval(() => {
-const differentTime = startTime - new Date();
+const differentTime =  startTime - Date.now();
+
+// console.log(startTime);
+// console.log(Date.now());
+// console.log(differentTime);
 
 btnStart.disabled = true;
-if(differentTime => 0){
-   const {days, hours, minutes, seconds } = convertMs(differentTime);
+
+if(differentTime < 900){
+ clearInterval(intervalId)
+  btnStart.disabled = false; 
+
+}
+
+  const {days, hours, minutes, seconds } = convertMs(differentTime);
+   
    day.textContent = days;
    hour.textContent = hours;
    minute.textContent = minutes;
    second.textContent = seconds;
-}
-btnStart.disabled = false;
-clearInterval(intervalId);
+ 
 }, timerCount);
-
   };
 
   function convertMs(ms) {
@@ -97,7 +90,7 @@ clearInterval(intervalId);
     return { days, hours, minutes, seconds };
   }
   
-  // console.log(convertMs(differentTime)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
+  // console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
   
   function addLeadingZero(value){
 
