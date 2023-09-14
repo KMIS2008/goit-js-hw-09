@@ -35,32 +35,23 @@ const options = {
     },
   };
 
-
-
   btnStart.addEventListener('click', clickSart);
 
   function clickSart(event){
-    if(btnStart.disabled){
-      return;
-     }
-
-    btnStart.disabled = true;
 
     intervalId = setInterval(() => {
-const differentTime =  startTime - Date.now();
+   const differentTime =  startTime - Date.now();
 
 // console.log(startTime);
 // console.log(Date.now());
 // console.log(differentTime);
 
-btnStart.disabled = true;
+    btnStart.disabled = true;
 
-if(differentTime < 900){
+    if(differentTime < 900){
  clearInterval(intervalId)
   btnStart.disabled = false; 
-
 }
-
   const {days, hours, minutes, seconds } = convertMs(differentTime);
    
    day.textContent = days;
