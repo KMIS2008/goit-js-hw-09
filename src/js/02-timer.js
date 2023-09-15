@@ -1,6 +1,8 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 
+document.body.style.backgroundColor = '	#FFC0CB';
+
 const inputData = document.querySelector('#datetime-picker');
   console.log(inputData);
 const btnStart = document.querySelector('[data-start]');
