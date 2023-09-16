@@ -18,7 +18,6 @@ let startTime = null;
 btnStart.disabled = true;
 // let timeDiference = 0;
 
-const flatpickr = require("flatpickr");
 
 const options = {
     enableTime: true,

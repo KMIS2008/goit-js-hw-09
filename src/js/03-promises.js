@@ -36,7 +36,7 @@ let position = 0;
 
 for (let i = 0; i < amount.value; i++) {
   position +=1;
-  delay +=step;
+  
 
   createPromise(position, delay )
   .then(({ position, delay }) => {
@@ -50,12 +50,28 @@ for (let i = 0; i < amount.value; i++) {
             );
         });
         
+  delay +=step; 
 }
 form.reset();
 clearTimeout(timerId);
 };
 
 
+// form.addEventListener('input', inputText);
+
+// const FEEDBACK_KEY = 'Promise'
+
+// function inputText (event) {
+//     event.preventDefault();
+
+// const info = {
+//         deplay: firstDelay.value,
+//         step: delayStep.value,
+//         amount: amount.value,
+//     };
+
+// localStorage.setItem(FEEDBACK_KEY, JSON.stringify(info));
+// }
 
 
 
